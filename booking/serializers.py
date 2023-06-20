@@ -10,3 +10,5 @@ class BookingSerializer(serializers.ModelSerializer):
             "phone_number",
             "date_time"
         )
+
+        model = Booking
