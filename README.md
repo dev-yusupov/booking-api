@@ -39,104 +39,29 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-# Features
-#### Project apps
-
-```
-booking-api
-|____ config
-|      |___ __init__.py
-|      |____asgi.py
-|      |____settings.py
-|      |____urls.py
-|      |____wsgi.py
-|_____accounts
-|      |____ __init__.py
-|      |____ admin.py
-|      |____ apps.py
-|      |____ forms.py
-|      |____ models.py
-|      |____ serializers.py
-|      |____ tests.py
-|      |____ urls.py
-|      |____ views.py
-|____ taxi
-|      |____ __init__.py
-|      |____ admin.py
-|      |____ apps.py
-|      |____ models.py
-|      |____ serializers.py
-|      |____ tests.py
-|      |____ urls.py
-|      |____ views.py
-|____ hotel
-|      |____ __init__.py
-|      |____ admin.py
-|      |____ apps.py
-|      |____ models.py
-|      |____ serializers.py
-|      |____ tests.py
-|      |____ urls.py
-|      |____ views.py
-|____ hospital
-|      |____ __init__.py
-|      |____ admin.py
-|      |____ apps.py
-|      |____ models.py
-|      |____ serializers.py
-|      |____ tests.py
-|      |____ urls.py
-|      |____ views.py
-|____ entertainment
-|      |____ __init__.py
-|      |____ admin.py
-|      |____ apps.py
-|      |____ models.py
-|      |____ serializers.py
-|      |____ tests.py
-|      |____ urls.py
-|      |____ views.py
-|____ airline
-|      |____ __init__.py
-|      |____ admin.py
-|      |____ apps.py
-|      |____ models.py
-|      |____ serializers.py
-|      |____ tests.py
-|      |____ urls.py
-|      |____ views.py
-|____ delivery
-|      |____ __init__.py
-|      |____ admin.py
-|      |____ apps.py
-|      |____ models.py
-|      |____ serializers.py
-|      |____ tests.py
-|      |____ urls.py
-|      |____ views.py
-|
-|_____ manage.py
-|_____ README.md
-|_____ requirements.txt
-|_____ .gitignore
-```
-
-
-### Config
-URLs of apps
-
-```
-/api/accounts/  ---  Accounts app
-/api/taxi/  ---  Taxi app
-/api/hotel/ --- Hotel app
-/api/hospital/  --- Hospital app
-/api/entertainment/ --- Entertainment app
-/api/delivery/ --- Delivery app
-/api/airline/ --- Airline app
-```
-
 
 ### Accounts App
 Contain User model inherited from AbstractUser
 
 Also contains two forms: CustomUserCreationForm(UserCreationForm) and CustomUserChange(UserChangeForm)
+
+##### Contains following lines
+```
+first_name      CharField
+last_name       CharField
+phone_number    PhoneNumber
+email           Email
+password        Password
+```
+
+### Taxi app
+This app allows to make orders to the users of Booking-API app
+```
+user            ForeignKey
+user_name       Charfield
+user_phone_number   Phone number
+user_email      Email
+is_econom       Boolean
+is_business     Boolean
+is_premium      Boolean
+```
