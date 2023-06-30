@@ -16,6 +16,7 @@ inflection==0.5.1
 jsonschema==4.17.3
 oauthlib==3.2.2
 Pillow==9.5.0
+psycopg2-binary==2.9.6
 pycparser==2.21
 PyJWT==2.7.0
 pyrsistent==0.19.3

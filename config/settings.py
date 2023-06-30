@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -44,6 +45,7 @@ INSTALLED_APPS = [
 
     #Apps
     'accounts',
+    'core',
     'taxi',
 ]
 
@@ -81,22 +83,23 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-DATABASE = {
+DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgres',
-        'HOST': 'localhost',
-        'NAME': 'booking',
-        'USER': 'postgres',
-        'PASSWORD': '20062007',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# DATABASE = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'HOST': 'localhost',
+#         'NAME': 'booking',
+#         'USER': 'dev-yusupov',
+#         'POSRT': '5432',
+#         'PASSWORD': '20062007',
+#     }
+# }
 
 
 # Password validation

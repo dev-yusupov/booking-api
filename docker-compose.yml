@@ -9,4 +9,26 @@ services:
     volumes:
       - .:/app
     command: >
-      sh -c "python manage.py runserver 0.0.0.0:8000"
+      sh -c "python manage.py makemigrations && 
+            python manage.py migrate &&
+            python manage.py runserver 0.0.0.0:8000"
+    environment:
+      - DB_HOST=localhost
+      - DB_NAME=booking
+      - DB_USER=postgres
+      - DB_PASS=20062007
+    depends_on:
+      - db
+  
+  db:
+    image: postgres:15.3-alpine
+    volumes:
+      - dev-db-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=booking
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=20062007
+
+  
+volumes:
+  dev-db-data: 
