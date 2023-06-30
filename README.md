@@ -45,14 +45,27 @@ Contain User model inherited from AbstractUser
 
 Also contains two forms: CustomUserCreationForm(UserCreationForm) and CustomUserChange(UserChangeForm)
 
-##### Contains following lines
+##### Contains following lines - for Bookers (create_user)
 ```
-first_name      CharField
-last_name       CharField
-phone_number    PhoneNumber
+first_name      CharField (max_length - 50)
+last_name       CharField (max_length - 50)
+phone_number    PhoneNumber (max_length - 17)
 email           Email
 password        Password
+is_user         Boolean (default=True)
 ```
+
+##### Contains following lines - for Taxi drivers (create_user_taxi)
+```
+first_name      CharField (max_length - 50)
+last_name       CharField (max_length - 50)
+phone_number    PhoneNumber
+email           EmailField
+password        PasswordField
+is_taxi         Bool (default=True)
+car_size        Charfield(choices=['small', 'medium', 'big'])
+```
+
 
 ### Taxi app
 This app allows to make orders to the users of Booking-API app
@@ -61,7 +74,11 @@ user            ForeignKey
 user_name       Charfield
 user_phone_number   Phone number
 user_email      Email
+location        CharField(max_length = 200)
+destination        CharField(max_length = 200)
 is_econom       Boolean
 is_business     Boolean
 is_premium      Boolean
 ```
+
+# Models of other apps will be ready after the release of first version
