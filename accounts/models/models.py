@@ -33,10 +33,11 @@ class UserManager(BaseUserManager):
 
     def create_taxi(self, email, password, **extra_fields):
         """Create and return a taxi driver account."""
-        user = self.create_user(email, password)
+        user = self.create_user(email, password, **extra_fields)
         user.is_taxi = True
 
         user.save(using=self._db)
+        return user
 
 class User(AbstractBaseUser, PermissionsMixin):
     """Model of User"""

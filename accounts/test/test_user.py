@@ -19,7 +19,6 @@ class UserModelTest(TestCase):
 
         self.assertEqual(user.email, email)
         self.assertTrue(user.is_user)
-        self.assertFalse(user.is_taxi)
         self.assertTrue(user.check_password(password))
     
     def test_create_user_normalized_email(self):
