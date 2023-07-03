@@ -28,6 +28,7 @@ class PublicTaxiTests(TestCase):
         self.client = APIClient()
     
     def test_create_taxi_account_successful(self):
+        """Test Create and returns a Taxi Driver Account successful."""
         payload = {
             'email': "taxi@test.com",
             'first_name': "Taxi",
@@ -39,3 +40,51 @@ class PublicTaxiTests(TestCase):
         response = self.client.post(CREATE_TAXI_PROFILE_URL, payload)
 
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+    
+    def test_create_taxi_profile_exist_email_error(self):
+        """Test return error if email exists."""
+        payload = {
+            'email': "taxi@test.com",
+            'first_name': "Taxi",
+            'last_name': 'Taxiov',
+            'phone_number': '222334455',
+            'password': 'taxi1234',
+        }
+
+        create_taxi_account(**payload)
+        response = self.client.post(CREATE_TAXI_PROFILE_URL, payload)
+
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+    
+    def test_password_too_short(self):
+        """Test return error if password is less than 5 charachers."""
+        payload = {
+            'email': "taxi@test.com",
+            'first_name': "Taxi",
+            'last_name': 'Taxiov',
+            'phone_number': '222334455',
+            'password': 'pw',
+        }
+        
+        response = self.client.post(CREATE_TAXI_PROFILE_URL, payload)
+        user_exists = get_user_model().objects.filter(email=payload['email']).exists()
+
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        self.assertFalse(user_exists)
+    
+    def test_no_phone_number_error(self):
+        """Test returns error if phone number is not provided."""
+        payload = {
+            'email': "taxi@test.com",
+            'first_name': "Taxi",
+            'last_name': 'Taxiov',
+            'phone_number': '',
+            'password': 'taxi1234',
+        }
+        
+        response = self.client.post(CREATE_TAXI_PROFILE_URL, payload)
+        user_exists = get_user_model().objects.filter(phone_number=payload['phone_number']).exists()
+
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        self.assertFalse(user_exists)
+    
