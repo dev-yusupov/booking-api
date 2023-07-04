@@ -10,7 +10,7 @@ class OrderTaxiSerializer(ModelSerializer):
     """OrderTaxi Serializer."""
     class Meta:
         model = OrderTaxi
-        fields = ['id', 'from_location', 'to_location']
+        fields = ['id', 'from_location', 'to_location', 'price']
         read_only_fields = ['id']
     
     def create_taxi_order(self, validated_data):
