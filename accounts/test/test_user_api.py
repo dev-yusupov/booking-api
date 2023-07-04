@@ -14,9 +14,10 @@ from django.urls import reverse
 from rest_framework.test import APIClient
 from rest_framework import status
 
-CREATE_USER_URL = reverse("accounts:create")
+CREATE_USER_URL = reverse("accounts:signup")
 TOKEN_URL = reverse("accounts:token")
-ME_URL = reverse("accounts:authenticated-user-profile")
+LOGIN_URL = reverse("accounts:login")
+ME_URL = reverse("accounts:profile")
 
 def create_user(**params):
     """Create and return a new user."""

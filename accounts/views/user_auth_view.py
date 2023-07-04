@@ -8,6 +8,7 @@ from rest_framework.generics import (
     CreateAPIView,
     RetrieveUpdateAPIView, 
     )
+
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.settings import api_settings
 from rest_framework.authentication import TokenAuthentication
