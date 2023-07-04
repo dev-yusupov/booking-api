@@ -16,7 +16,6 @@ class UserManager(BaseUserManager):
         if not password:
             raise ValueError("User must provide a password.")
         user = self.model(email=self.normalize_email(email), **extra_fields)
-        user.is_user = True
         user.set_password(password)
         user.save(using=self._db)
 
@@ -27,14 +26,6 @@ class UserManager(BaseUserManager):
         user = self.create_user(email, password)
         user.is_staff = True
         user.is_superuser = True
-
-        user.save(using=self._db)
-        return user
-
-    def create_taxi(self, email, password, **extra_fields):
-        """Create and return a taxi driver account."""
-        user = self.create_user(email, password, **extra_fields)
-        user.is_taxi = True
 
         user.save(using=self._db)
         return user

@@ -46,8 +46,8 @@ INSTALLED_APPS = [
 
     #Apps
     'accounts',
-    'core',
-    'taxi',
+        'core',
+        'taxi',
 ]
 
 MIDDLEWARE = [
