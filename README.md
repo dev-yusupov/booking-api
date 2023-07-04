@@ -1,6 +1,6 @@
 # Booking-API (Booking appointment is now easier)
 
-##### Thank to [Django](https://www.djangoproject.com/) and [Django REST Framework](https://www.django-rest-framework.org/). This API is created using these two Python Frameworks. DRF Spectacular allows Frontend Developers to understand the documentation of the Booking-API.
+## Thank to [Django](https://www.djangoproject.com/) and [Django REST Framework](https://www.django-rest-framework.org/). This API is created using these two Python Frameworks. DRF Spectacular allows Frontend Developers to understand the documentation of the Booking-API
 
 <h5 style="color:rgb(30,150,150);">Booking-API help to book from the following services</h5>
 
@@ -14,7 +14,7 @@
 ### How to start
 
 1. Clone the Repository from GitHub and enter into repo from command line
-   
+
 ```
 git clone https://github.com/dev-yusupov/booking-api.git
 cd booking-api
@@ -34,18 +34,19 @@ python manage.py migrate
 ```
 
 3. Run server
-   
+
 ```
 python manage.py runserver
 ```
 
-
 ### Accounts App
+
 Contain User model inherited from AbstractUser
 
 Also contains two forms: CustomUserCreationForm(UserCreationForm) and CustomUserChange(UserChangeForm)
 
 ##### Contains following lines - for Bookers (create_user)
+
 ```
 first_name      CharField (max_length - 50)
 last_name       CharField (max_length - 50)
@@ -56,6 +57,7 @@ is_user         Boolean (default=True)
 ```
 
 ##### Contains following lines - for Taxi drivers (create_user_taxi)
+
 ```
 first_name      CharField (max_length - 50)
 last_name       CharField (max_length - 50)
@@ -66,9 +68,10 @@ is_taxi         Bool (default=True)
 car_size        Charfield(choices=['small', 'medium', 'big'])
 ```
 
-
 ### Taxi app
+
 This app allows to make orders to the users of Booking-API app
+
 ```
 user            ForeignKey
 user_name       Charfield
@@ -81,4 +84,11 @@ is_business     Boolean
 is_premium      Boolean
 ```
 
-# Models of other apps will be ready after the release of first version
+This app also has a calculator which help to calculate price of order using <i>geopy</i> library.
+
+To install <i>geopy</i> type the following command to CMD:
+```
+pip install geopy
+```
+
+### Models of other apps will be ready after the release of first version
