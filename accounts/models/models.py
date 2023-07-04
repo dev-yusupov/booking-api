@@ -16,6 +16,7 @@ class UserManager(BaseUserManager):
         if not password:
             raise ValueError("User must provide a password.")
         user = self.model(email=self.normalize_email(email), **extra_fields)
+        user.is_user = True
         user.set_password(password)
         user.save(using=self._db)
 
@@ -46,4 +47,4 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
 
     def __str__(self):
-        return f"{self.email}({self.id})"
+        return f"{self.email}"
