@@ -16,7 +16,6 @@ from rest_framework import status
 
 CREATE_USER_URL = reverse("accounts:signup")
 TOKEN_URL = reverse("accounts:token")
-LOGIN_URL = reverse("accounts:login")
 ME_URL = reverse("accounts:profile")
 
 def create_user(**params):

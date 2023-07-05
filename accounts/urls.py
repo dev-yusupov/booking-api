@@ -6,7 +6,6 @@ from accounts.views.user_auth_view import (
     CreateUserView,
     CreateTokenView,
     ManageUserView,
-    UserLoginView,
     )
 
 app_name = "accounts"
