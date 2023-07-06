@@ -101,13 +101,13 @@ This app helps to book a room from hotels for the users of the Booking-API.
  - Hotel
  - HotelRoomOrder
 
-###### Hotel
+##### Hotel
  - Hotel ID (automatically generates the 6-digit ID)
  - Hotel name
  - <b>Hotel Location</b> - (this field is URLField, while registring new hotel it will be required to paste the url of location of the hotel from <i>Google Maps</i>)
  - <b>Minimum Price</b> - it is required field
  - <b>Phone number</b> - this field takes the number of phone of hotel
- - <b>Optionan Fields are - Hotel email and website (both will be URL Fields)</b>
+ - <b>Optional Fields are - Hotel email and website (both will be URL Fields)</b>
  - <b>Start of the work </b> - TimeField
  - <b>End of the working hours - TimeField</b>
  - !!! All BOTH FIELDS ABOVE REQUIRED BECAUSE BOOKERS SHOULD KNOW THE OPEN HOURS OF RECEPTION AT HOTELS.!!!
