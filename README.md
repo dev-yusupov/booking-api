@@ -92,3 +92,31 @@ pip install geopy
 ```
 
 ### Models of other apps will be ready after the release of first version
+
+### Hotel App
+
+This app helps to book a room from hotels for the users of the Booking-API.
+
+##### Models:
+ - Hotel
+ - HotelRoomOrder
+
+###### Hotel
+ - Hotel ID (automatically generates the 6-digit ID)
+ - Hotel name
+ - <b>Hotel Location</b> - (this field is URLField, while registring new hotel it will be required to paste the url of location of the hotel from <i>Google Maps</i>)
+ - <b>Minimum Price</b> - it is required field
+ - <b>Phone number</b> - this field takes the number of phone of hotel
+ - <b>Optionan Fields are - Hotel email and website (both will be URL Fields)</b>
+ - <b>Start of the work </b> - TimeField
+ - <b>End of the working hours - TimeField</b>
+ - !!! All BOTH FIELDS ABOVE REQUIRED BECAUSE BOOKERS SHOULD KNOW THE OPEN HOURS OF RECEPTION AT HOTELS.!!!
+ - <b>3 image fields will be required.</b>
+
+##### HotelRoomOrder model
+ - OrderID - UUID4
+ - Number of Rooms - this field is required because hotel reception should know how many rooms are booked by app user.
+ - Number of people.
+ - date_start
+ - date_to
+ - additional_points - TextField() the following field is added because some customers may need additional things from hotel for example a conference room or a fitness club from hotel. Therefore this field is added.
