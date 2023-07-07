@@ -13,6 +13,7 @@ class HotelsSerializer(ModelSerializer):
     class Meta:
         model = Hotel
         fields = ['id', 'hotel_name']
+        read_only_fields = ['id']
 
     def create(self, validated_data):
         hotel = Hotel.objects.create(**validated_data)
