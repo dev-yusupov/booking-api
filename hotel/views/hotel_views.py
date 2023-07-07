@@ -35,8 +35,9 @@ class HotelView(
     """ViewSet for Hotel Model."""
     queryset = Hotel.objects.all()
     serializer_class = HotelDetailSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated or IsAdminUser]
     authentication_classes = [TokenAuthentication]
+    http_method_names = ['get']
 
     def get_queryset(self):
         """Retrieve list of hotels for authenticated users."""
@@ -50,27 +51,3 @@ class HotelView(
         
         return self.serializer_class
     
-
-
-# class CreateHotelView(
-#     GenericViewSet,
-#     RetrieveModelMixin,
-#     ListModelMixin, 
-#     UpdateModelMixin,
-#     CreateModelMixin,
-#     DestroyModelMixin,
-# ):
-    
-#     queryset = Hotel.objects.all()
-#     serializer_class = HotelDetailSerializer
-#     permission_classes = [IsAdminUser]
-#     authentication_classes = [TokenAuthentication]
-#     http_method_names = ['get', 'post', 'patch', 'delete']
-
-#     def get_queryset(self):
-
-#         queryset = self.queryset
-#         return queryset.all().order_by('-hotel_name')
-
-#     def perform_create(self, serializer):
-#         serializer.save()
