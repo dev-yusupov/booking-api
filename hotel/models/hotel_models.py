@@ -10,7 +10,7 @@ from functions.id_key_generation import RandomID
 class Hotel(models.Model):
     """Model for registering hotels."""
     random = RandomID()
-    id = models.AutoField(primary_key=True, default=random.generate_six_digit_id(), editable=False)
+    id = models.AutoField(primary_key=True, default=random.generate_six_digit_id(), editable=False, unique=True)
     hotel_name = models.CharField(max_length=254)
     hotel_location = models.URLField()
     min_price = models.IntegerField()
@@ -18,6 +18,8 @@ class Hotel(models.Model):
     phone_number = models.CharField(max_length=13)
     start_of_work = models.TimeField(default="08:00")
     end_of_work = models.TimeField(default="20:00")
+
+    description = models.TextField()
 
     def __str__(self) -> str:
         return f"{self.hotel_name}"
