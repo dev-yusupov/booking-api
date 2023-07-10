@@ -32,5 +32,4 @@ urlpatterns = [
          name="api-docs"
          ),
 
-    path("hotels/", include("hotel.urls"))
 ]
