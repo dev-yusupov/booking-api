@@ -1,1 +1,0 @@
-from hotel.models import hotel_models
